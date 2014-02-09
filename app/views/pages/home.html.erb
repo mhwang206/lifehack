@@ -2,7 +2,7 @@
 	<h1>Welcome to Lifehack</h1>
 	<p>We are all about making life easier and cooler!</p>
 	<% if user_signed_in? %>
-	do something
+	<img src="http://inspirehappy.com/wp-content/uploads/2013/04/lifehack-420x339.jpg" alt="easy way sign" height="300" width="500">
 	<% else %>
 	<p>Clikc here to <%= link_to "join us", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
 	<p>Already have an account? <%= link_to "log in here", new_user_session_path %></p>
