@@ -1,0 +1,33 @@
+<h1>Listing hacks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>User Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hacks.each do |hack| %>
+      <tr>
+        <td><%= hack.description if hack.user %></td>
+        <td><%= hack.user.email if hack.user %></td>
+        <td><%= link_to 'Show', hack %></td>
+        <% if hack.user == current_user %>
+          <td><%= link_to 'Edit', edit_hack_path(hack) %></td>
+          <td><%= link_to 'Destroy', hack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if user_signed_in? %>
+  <%= link_to 'New Hack', new_hack_path %>
+<% end %>

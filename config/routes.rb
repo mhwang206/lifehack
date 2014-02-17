@@ -1,7 +1,8 @@
 Lifehack::Application.routes.draw do
   
-  devise_for :users
   root "pages#home"
+  resources :hacks
+  devise_for :users
   # get "home" => "pages#home"
   get "about" => "pages#about"
 

@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @hack.description %>
+</p>
+
+<% if @hack.user == current_user %>
+<%= link_to 'Edit', edit_hack_path(@hack) %> 
+<% end %>
+<%= link_to 'Back', hacks_path %>
+
