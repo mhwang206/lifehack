@@ -1,35 +1,20 @@
-<h1>Listing hacks</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Description</th>
-      <th>User Email</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @hacks.each do |hack| %>
-      <tr>
-        <td><%= image_tag hack.image.url(:medium) %></td>
-        <td><%= hack.description if hack.user %></td>
-        <td><%= hack.user.email if hack.user %></td>
-        <td><%= link_to 'Show', hack %></td>
+<div id="hacks" class="transitions-enabled">
+  <% @hacks.each do |hack| %>
+    <div class="box panel panel-default">
+      <%= image_tag hack.image.url(:medium) %>
+      <div class="panel-body">
+        <%= hack.description if hack.user %>
+        <%= hack.user.email if hack.user %>
+        <%= link_to 'Show', hack %>
         <% if hack.user == current_user %>
-          <td><%= link_to 'Edit', edit_hack_path(hack) %></td>
-          <td><%= link_to 'Destroy', hack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%= link_to 'Edit', edit_hack_path(hack) %>
+          <%= link_to 'Destroy', hack, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+     </div>
+    </div>
+  <% end %>
+</div>
 
-<br>
 
-<% if user_signed_in? %>
-  <%= link_to 'New Hack', new_hack_path %>
-<% end %>
+
+
