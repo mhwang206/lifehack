@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Description</th>
       <th>User Email</th>
       <th></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @hacks.each do |hack| %>
       <tr>
+        <td><%= image_tag hack.image.url(:medium) %></td>
         <td><%= hack.description if hack.user %></td>
         <td><%= hack.user.email if hack.user %></td>
         <td><%= link_to 'Show', hack %></td>

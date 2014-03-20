@@ -1,5 +1,7 @@
 Lifehack::Application.routes.draw do
   
+  get "pages/home"
+  get "home/index"
   root "pages#home"
   resources :hacks
   devise_for :users
