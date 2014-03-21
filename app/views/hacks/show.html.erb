@@ -11,10 +11,9 @@
         <p><strong><%= @hack.user.email if @hack.user %></strong></p>
 
         <% if @hack.user == current_user %>
-         <%= link_to edit_hack_path(@hack) do %>
-          <span class="glyphicon glyphicon-edit"></span> Edit
-         <% end %>
+         <%= link_to 'Edit', edit_hack_path(@hack) %>
         <% end %>
+
       </div>
     </div>
   </div>
