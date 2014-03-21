@@ -8,7 +8,7 @@
       </div>
       <div class="panel-body">
         <p><%= @hack.description %></p>
-        <p><strong><%= @hack.user.email if @hack.user %></strong></p>
+        <p><strong><%= @hack.user.name if @hack.user %></strong></p>
 
         <% if @hack.user == current_user %>
          <%= link_to 'Edit', edit_hack_path(@hack) %>

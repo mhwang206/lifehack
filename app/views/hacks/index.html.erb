@@ -7,7 +7,7 @@
       <div class="panel-body">
         <strong><%= hack.description if hack.user %></strong>
         <br>
-        <%= hack.user.email if hack.user %>
+        <%= hack.user.name if hack.user %>
         <% if hack.user == current_user %>
          <div class="actions">
           <%= link_to edit_hack_path(hack) do %>
