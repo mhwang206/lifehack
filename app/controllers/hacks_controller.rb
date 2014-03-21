@@ -3,7 +3,7 @@ class HacksController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @hacks = Hack.all.order("created_at DESC")
+    @hacks = Hack.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
   end
 
   def show

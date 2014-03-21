@@ -11,6 +11,8 @@ gem 'masonry-rails', '~> 0.2.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass'
+gem 'will_paginate', '~> 3.0'
+gem 'will_paginate-bootstrap'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
