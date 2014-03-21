@@ -1,12 +1,21 @@
-<%= image_tag @hack.image.url(:medium) %>
-
-<p>
-  <strong>Description:</strong>
-  <%= @hack.description %>
-</p>
-
-<% if @hack.user == current_user %>
-	<%= link_to 'Edit', edit_hack_path(@hack) %> 
-<% end %>
 <%= link_to 'Back', hacks_path %>
 
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading center">
+        <%= image_tag @hack.image.url(:medium) %>
+      </div>
+      <div class="panel-body">
+        <p><%= @hack.description %></p>
+        <p><strong><%= @hack.user.email if @hack.user %></strong></p>
+
+        <% if @hack.user == current_user %>
+         <%= link_to edit_hack_path(@hack) do %>
+          <span class="glyphicon glyphicon-edit"></span> Edit
+         <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
