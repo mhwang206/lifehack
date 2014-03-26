@@ -7,7 +7,7 @@ class HacksController < ApplicationController
   end
 
   def show
-    # @hack = Hack.find(params[:id])
+    @hack = Hack.find(params[:id])
   end
 
   def new
@@ -51,7 +51,6 @@ class HacksController < ApplicationController
       @hack = current_user.hacks.find_by(id: params[:id])
       redirect_to hacks_path, notice: "Not authorized to edit this hack" if @hack.nil?
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def hack_params
       params.require(:hack).permit(:description, :image)

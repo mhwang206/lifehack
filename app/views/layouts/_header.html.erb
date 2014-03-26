@@ -9,7 +9,8 @@
         <span class="icon-bar"></span>
       </button>
       <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "Lifehack", root_path, class: "navbar-brand" %></li>
+      <li><strong><%= link_to "LifeHacker", root_path, class: "navbar-brand" %></strong></li>
+      <li><button class = "btn btn-primary" data-toggle="modal" data-target="#new_hack">new hack</button></li>
      </ul>
     </div>
 
@@ -17,20 +18,41 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", about_path %></li>
         <% if user_signed_in? %>
-          <li>
-            <%= link_to new_hack_path do %>
+          <li><%= link_to new_hack_path do %>
               <span class="glyphicon glyphicon-plus"></span> New Hack
-            <% end %>
+              <% end %>
           </li>
+          <li><%= link_to "My hacks", user_path(current_user) %></li>
           <li><%= link_to "Account settings", edit_user_registration_path %></li>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to "Sign in", new_user_session_path %>
+          <li>
+            <%= link_to "Sign in", new_user_session_path %>
+          </li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+
+
+
+  <!-- The modal triggered by the button-click -->  
+  <div class="modal fade" id="new_hack" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+        <h3>New Hack</h3>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+
+

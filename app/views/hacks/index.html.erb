@@ -7,15 +7,13 @@
       <div class="panel-body">
         <strong><%= hack.description if hack.user %></strong>
         <br>
-        <%= hack.user.name if hack.user %>
-        <% if hack.user == current_user %>
+        by <%= hack.user.name if hack.user %>
+        <% if user_signed_in? %>
          <div class="actions">
-          <%= link_to edit_hack_path(hack) do %>
-            <span class="glyphicon glyphicon-edit"></span> Edit
-          <% end %>
-          <%= link_to hack, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <span class="glyphicon glyphicon-trash"></span> Delete
-          <% end %>
+          <%= link_to hack do %>
+          <span class="glyphicon glyphicon-hand-up"></span> Awesome
+        <% end %>
+
          </div>
         <% end %>
      </div>
@@ -26,3 +24,4 @@
 <div class="center">
    <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
 </div>
+

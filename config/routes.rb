@@ -1,10 +1,14 @@
 Lifehack::Application.routes.draw do
-  
+ 
+  devise_for :users 
+  get "comments/new" 
   get "pages/home"
   get "home/index"
   root "hacks#index"
   resources :hacks
-  devise_for :users
+  resources :users, only: [:index, :show]
+  resources :comments
+
   # get "home" => "pages#home"
   get "about" => "pages#about"
 

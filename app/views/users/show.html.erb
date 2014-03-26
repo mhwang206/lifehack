@@ -1,0 +1,22 @@
+<div id="hacks" class="transitions-enabled">
+  <% @user.hacks.each do |hack| %>
+    <div class="box panel panel-default">
+      <%= link_to image_tag(hack.image.url(:medium)), hack %>
+      <div class="panel-body">
+        <strong><%= hack.description if hack.user %></strong>
+        <br>
+        <%= hack.user.name if hack.user %>
+        <% if current_user && hack.user == current_user %>
+         <div class="actions">
+          <%= link_to edit_hack_path(hack) do %>
+            <span class="glyphicon glyphicon-edit"></span> Edit
+          <% end %>
+          <%= link_to hack, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <span class="glyphicon glyphicon-trash"></span> Delete
+          <% end %>
+         </div>
+        <% end %>
+     </div>
+    </div>
+  <% end %>
+</div>
