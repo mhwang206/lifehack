@@ -29,7 +29,8 @@
     <div class="panel-body">
       <strong><%= like.hack.description if like.hack %></strong>
       <br>
-      <%= like.hack.user.name if like.hack %>   
+      <%= like.hack.user.name if like.hack %> 
+      <%= link_to "remove", like, :method => :delete %>  
    </div>
   </div>
 <% end %>  
