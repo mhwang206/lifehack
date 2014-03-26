@@ -2,10 +2,10 @@ class LikesController < ApplicationController
   def create
     @like = current_user.likes.build(:hack_id => params[:hack_id])
     if @like.save
-      flash[:notice] = "Added friend."
+      flash[:notice] = "Your awesome hack was saved!"
       redirect_to root_url
     else
-      flash[:error] = "Unable to add friend."
+      flash[:error] = "Sorry we aren't able to save the awesome hack right now."
       redirect_to root_url
     end
   end
