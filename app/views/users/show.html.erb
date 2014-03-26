@@ -1,3 +1,4 @@
+<h2>My hacks</h2>
 <div id="hacks" class="transitions-enabled">
   <% @user.hacks.each do |hack| %>
     <div class="box panel panel-default">
@@ -14,9 +15,25 @@
           <%= link_to hack, method: :delete, data: { confirm: 'Are you sure?' } do %>
           <span class="glyphicon glyphicon-trash"></span> Delete
           <% end %>
-         </div>
+          </div>
         <% end %>
      </div>
     </div>
-  <% end %>
+  <% end %>     
 </div>
+
+<h2>Awesome hacks</h2>
+  <% @user.likes.each do |like| %>
+  <div class="box panel panel-default">
+    <%= link_to image_tag(like.hack.image.url(:medium)), like.hack if like.hack %>
+    <div class="panel-body">
+      <strong><%= like.hack.description if like.hack %></strong>
+      <br>
+      <%= like.hack.user.name if like.hack %>   
+   </div>
+  </div>
+<% end %>  
+
+
+
+

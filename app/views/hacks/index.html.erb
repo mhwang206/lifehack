@@ -7,15 +7,10 @@
       <div class="panel-body">
         <strong><%= hack.description if hack.user %></strong>
         <br>
-        by <%= hack.user.name if hack.user %>
-        <% if user_signed_in? %>
-         <div class="actions">
-          <%= link_to hack do %>
-          <span class="glyphicon glyphicon-hand-up"></span> Awesome
-        <% end %>
-
-         </div>
-        <% end %>
+        <p>by <%= hack.user.name if hack.user %></p>
+        <%= link_to likes_path(:user_id => hack, :hack_id => hack), :method => :post do %>
+        <span class="glyphicon glyphicon-hand-up"></span> Awesome
+        <% end %>     
      </div>
     </div>
   <% end %>
@@ -25,3 +20,8 @@
    <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
 </div>
 
+
+
+
+
+        

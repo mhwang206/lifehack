@@ -8,6 +8,7 @@ Lifehack::Application.routes.draw do
   resources :hacks
   resources :users, only: [:index, :show]
   resources :comments
+  resources :likes
 
   # get "home" => "pages#home"
   get "about" => "pages#about"
