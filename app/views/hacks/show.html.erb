@@ -10,7 +10,7 @@
       </div>
       <div class="panel-body">
         <p><%= @hack.description %></p>
-        <p><strong>by <%= @hack.user.name if @hack.user %></strong></p>
+        <p><strong>by <%= link_to @hack.user.name, @hack.user if @hack.user %></strong></p>
 
         <div class="social_btns">
           <div type="button" class="btn btn-default">
@@ -55,6 +55,5 @@
   </div>
 </div>
 
-
-
+    
 

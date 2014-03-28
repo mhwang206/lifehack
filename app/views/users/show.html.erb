@@ -3,7 +3,7 @@
   </div>
   <div class="profile_info">
     <h2 id="user_name"><%= @user.name %></h2>
-    <div class="follow_btn"><%= link_to "Follow", "#", class: "btn btn-warning btn-sm" %></div>
+    <div class="follow_btn"><%= link_to "Follow", followings_path(:follower_id => @user), :method => :post, class: "btn btn-warning btn-sm" %></div>
   </div>
 </div>
 
@@ -69,13 +69,42 @@
         Email: <%= @user.email %>
         <div><%= link_to "Account settings", edit_user_registration_path %></div>
 
-        <% @user.comments.each do |comment| %>
-            <div><%= comment.comment %></div>
-            <div><%= comment.hack_id %></div>
-        <% end %>
-      </div> 
+        <div class="relationships">
+          <h3>Followings</h3>
+          <div class="row">
+            <% @user.followings.each do |following| %>
+            <div class="col-sm-3 col-md-3">
+              <div class="thumbnail">
+                <img src="https://i.imgur.com/9GrOH9h.jpg?1" alt="...">
+                <div class="caption">
+                  <strong><%= link_to following.follower.name, following.follower if following.follower %></strong>
+                <div class="unfollow_btn"><%= link_to "Unfollow", following, :method => :delete, class: "btn btn-default btn-sm" %></div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+
+          <h3>Followers</h3>
+          <div class="row">
+            <% @user.inverse_followers.each do |follower| %>
+            <div class="col-sm-3 col-md-3">
+              <div class="thumbnail">
+                <img src="https://i.imgur.com/9GrOH9h.jpg?1" alt="...">
+                <div class="caption">
+                  <strong><%= link_to follower.name, follower if follower %></strong>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+          </div> 
+        </div>
     </div>
   </div>
 </div>
 
- 
+
+
+
+

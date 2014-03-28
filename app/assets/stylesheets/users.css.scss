@@ -9,7 +9,6 @@
 	width: 150px;
 	height: 150px;
 	background-image: url("http://i.imgur.com/9GrOH9h.jpg?1");
-
 	display: inline-block;
 	float: left;
 }
@@ -33,3 +32,49 @@
 #user_name {
 	padding: 10px;
 }
+
+.relationships {
+	margin-bottom: 50px;
+}
+
+.followings_container {
+	border: 3px solid red;
+	height: 800px;
+}
+
+.happy {
+	width: 300px;
+	height: 300px;
+	display: inline-block;
+	float: left;
+}
+
+#following_name {
+	font-size: 14px;
+	border: 3px solid black;
+	color: black;
+	display: inline-block;
+	float: left;
+}
+
+.unfollow_btn {
+	width: 90px;
+	margin: 0 auto;	
+}
+
+.thumbnail {
+	background-color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

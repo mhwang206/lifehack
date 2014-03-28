@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   def create
-    @like = current_user.likes.build(:hack_id => params[:hack_id])
+    @like = current_user.likes.build(hack_id: params[:hack_id])
     if @like.save
       # @like.counter += 1
       flash[:notice] = "Your awesome hack was saved!"
@@ -17,4 +17,11 @@ class LikesController < ApplicationController
     flash[:notice] = "Hack removed."
     redirect_to current_user
   end
+
+  private 
+    def like_params
+      params.fetch(:like, {}).permit(:counter, hack_id: params[:like][:hack_id])
+    end
 end
+
+

@@ -57,3 +57,4 @@ end
       params.require(:hack).permit(:description, :image)
     end
 end
+
