@@ -12,6 +12,8 @@
       <tr>
         <td><%= comment.comment %></td>
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= comment.user_id %></td>
+        <td><%= comment.hack_id %></td>
       </tr>
     <% end %>
   </tbody>

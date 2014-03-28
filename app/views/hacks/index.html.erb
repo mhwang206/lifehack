@@ -1,13 +1,14 @@
 <%= render 'pages/home' unless user_signed_in? %>
-
 <div id="hacks" class="transitions-enabled">
   <% @hacks.each do |hack| %>
     <div class="box panel panel-default">
+      <div class="hoverimage">
       <%= link_to image_tag(hack.image.url(:medium)), hack %>
+      </div>
       <div class="panel-body">
         <strong><%= hack.description if hack.user %></strong>
         <br>
-        <p>by <%= hack.user.name if hack.user %></p>
+        <p>by <%= link_to hack.user.name if hack.user %></p>
         <%= link_to likes_path(:user_id => hack, :hack_id => hack), :method => :post do %>
         <span class="glyphicon glyphicon-hand-up"></span> Awesome
         <% end %>     
@@ -21,7 +22,7 @@
 </div>
 
 
-
-
-
+<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"
+    data-pin-hover="true"
+></script>
         

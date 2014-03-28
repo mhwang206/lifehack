@@ -1,3 +1,4 @@
+
 // Place all the styles related to the hacks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -14,3 +15,45 @@
 .box img {
 	width: 100%;
 }
+
+.divbutton {
+    height: 100px;
+    background: grey;
+}
+
+.btn {
+	margin-top: 8px;
+}
+
+.showimage {
+	text-align: center;
+	margin: 0 auto;	
+}
+
+.hoverimage {
+	opacity: 1;
+}
+
+.hoverimage:hover {
+	opacity: 0.7; 	
+}
+
+.social_btns {
+	
+}
+
+.cmt-form {
+  margin-top:30px;
+}
+
+.cmt {
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px solid #ccc;
+}
+
+.cmt .author {
+  font-size:11px;
+  color:#bbb;
+}
+

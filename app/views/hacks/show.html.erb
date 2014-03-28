@@ -4,24 +4,57 @@
   <div class="col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading center">
+        <div class="showimage">
         <%= image_tag(@hack.image.url) %>
-
+        </div>
       </div>
       <div class="panel-body">
         <p><%= @hack.description %></p>
-        <p><strong><%= @hack.user.name if @hack.user %></strong></p>
+        <p><strong>by <%= @hack.user.name if @hack.user %></strong></p>
 
-        <% if @hack.user == current_user %>
-         <%= link_to 'Edit', edit_hack_path(@hack) %>
-        <% end %>
+        <div class="social_btns">
+          <div type="button" class="btn btn-default">
+          <%= link_to likes_path(:user_id => @hack, :hack_id => @hack), :method => :post do %>
+          <span class="glyphicon glyphicon-hand-up"></span>Awesome
+          <% end %>         
+          </div>
 
-        <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-dnt="true">Tweet</a>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="mhwang306" data-size="large" data-count="none">Tweet</a>
+
+          <a href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F&media=http%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg&description=Next%20stop%3A%20Pinterest" data-pin-do="buttonPin" data-pin-config="none" data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_28.png" /></a>
+
+          <div class="fb-share-button" data-href="#" data-width="300" data-type="button"></div>
+        </div>
+
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-        <button><%= link_to "Comment", new_comment_path %></button>
+        <!-- Please call pinit.js only once per page -->
+        <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
       </div>
     </div>
+    <%= render "comments/form" %>
+
+    <% @hack.comments.each do |comment| %>
+      <div class="row cmt">
+         <div class="col-md-12">
+           <p><%= comment.comment %></p>
+           <p class="author">posted by <a href="#"><%= comment.user.name %></a> <a>(delete)</a></p>
+         </div>
+      </div>
+    <% end %>
   </div>
 </div>
+
+
 
 

@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 	before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_hack
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -11,4 +12,9 @@ class ApplicationController < ActionController::Base
      devise_parameter_sanitizer.for(:sign_up) << :name
      devise_parameter_sanitizer.for(:account_update) << :name
    end
+
+   private 
+    def set_hack
+      @hack = Hack.new
+    end
 end

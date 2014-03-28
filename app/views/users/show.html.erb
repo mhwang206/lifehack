@@ -1,40 +1,70 @@
-<h2>My hacks</h2>
-<div id="hacks" class="transitions-enabled">
-  <% @user.hacks.each do |hack| %>
-    <div class="box panel panel-default">
-      <%= link_to image_tag(hack.image.url(:medium)), hack %>
-      <div class="panel-body">
-        <strong><%= hack.description if hack.user %></strong>
-        <br>
-        <%= hack.user.name if hack.user %>
-        <% if current_user && hack.user == current_user %>
-         <div class="actions">
-          <%= link_to edit_hack_path(hack) do %>
-            <span class="glyphicon glyphicon-edit"></span> Edit
-          <% end %>
-          <%= link_to hack, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <span class="glyphicon glyphicon-trash"></span> Delete
-          <% end %>
+<ul class="nav nav-tabs nav-justified" id="myTab">
+  <li class="active"><a href="#awesome" data-toggle="tab">Awesome Hacks</a></li>
+  <li><a href="#my" data-toggle="tab">My hacks</a></li>
+  <li><a href="#profile" data-toggle="tab">Profile</a></li>
+</ul>
+
+   
+<div class="tab-content">
+  <div class="tab-pane active" id="awesome">
+    <div id="hacks" class="transitions-enabled">
+      <% @user.likes.each do |like| %>
+        <div class="box panel panel-default">
+          <%= link_to image_tag(like.hack.image.url(:medium)), like.hack if like.hack %>
+          <div class="panel-body">
+            <strong><%= like.hack.description if like.hack %></strong>
+            <br>
+            <%= like.hack.user.name if like.hack %> 
+            <%= link_to "remove", like, :method => :delete %>  
           </div>
-        <% end %>
-     </div>
+        </div> 
+      <% end %>    
     </div>
-  <% end %>     
 </div>
 
-<h2>Awesome hacks</h2>
-  <% @user.likes.each do |like| %>
-  <div class="box panel panel-default">
-    <%= link_to image_tag(like.hack.image.url(:medium)), like.hack if like.hack %>
-    <div class="panel-body">
-      <strong><%= like.hack.description if like.hack %></strong>
-      <br>
-      <%= like.hack.user.name if like.hack %> 
-      <%= link_to "remove", like, :method => :delete %>  
-   </div>
+<div class="tab-pane" id="my">
+  <div id="hacks">
+    <div class="awesome">
+      <% @user.hacks.each do |hack| %>
+      <div class="awesome_hack">
+        <div class="box panel panel-default">
+          <%= link_to image_tag(hack.image.url(:medium)), hack %>
+          <div class="panel-body">
+            <strong><%= hack.description if hack.user %></strong>
+            <br>
+            <%= hack.user.name if hack.user %>
+            <% if current_user && hack.user == current_user %>
+             <div class="actions">
+              <%= link_to edit_hack_path(hack) do %>
+                <span class="glyphicon glyphicon-edit"></span> Edit
+              <% end %>
+              <%= link_to hack, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span> Delete
+              <% end %>
+              </div>
+            <% end %>
+         </div>
+        </div>
+      </div>
+      <% end %> 
+    </div> 
   </div>
-<% end %>  
+</div>
+
+<div class="tab-pane" id="profile">
+  <div id="hacks">
+    <div class="awesome">
+      Name: <%= @user.name %><br>
+      Email: <%= @user.email %>
+      <div><%= link_to "Account settings", edit_user_registration_path %></div>
+
+      <% @user.comments.each do |comment| %>
+          <div><%= comment.comment %></div>
+          <div><%= comment.hack_id %></div>
+      <% end %>
+    </div> 
+  </div>
+</div>
 
 
-
-
+ 

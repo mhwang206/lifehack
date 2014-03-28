@@ -17,3 +17,15 @@
 //= require turbolinks
 //= require masonry/jquery.masonry
 //= require_tree .
+
+$(document).ready(function () {
+                $(document).on('mouseenter', '.divbutton','.hoverimage', function () {
+                    $(this).find(":button").show();
+                }).on('mouseleave', '.divbutton', '.hoverimage', function () {
+                    $(this).find(":button").hide();
+                });
+            });
+
+
+
+

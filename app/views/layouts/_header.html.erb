@@ -10,7 +10,7 @@
       </button>
       <ul class="nav navbar-nav navbar-right">
       <li><strong><%= link_to "LifeHacker", root_path, class: "navbar-brand" %></strong></li>
-      <li><button class = "btn btn-primary" data-toggle="modal" data-target="#new_hack">new hack</button></li>
+      <li><button class = "btn btn-warning" data-toggle="modal" data-target="#new_hack">+ new hack</button></li>
      </ul>
     </div>
 
@@ -23,12 +23,15 @@
               <span class="glyphicon glyphicon-plus"></span> New Hack
               <% end %>
           </li>
-          <li><%= link_to "My Hacks", user_path(current_user) %></li>
-          <li><%= link_to "Account settings", edit_user_registration_path %></li>
+          <li><%= link_to user_path(current_user) do %>
+              <span class="glyphicon glyphicon-user"></span> My Hacks
+              <% end %>
+          </li>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <li>
-            <%= link_to "Sign in", new_user_session_path %>
+          <li><%= link_to "Log in", new_user_session_path %></li>
+          <li> 
+            <button class = "btn btn-success welcome" data-toggle="modal" data-target="#login">Log in</button>
           </li>
         <% end %>
       </ul>
@@ -40,18 +43,31 @@
 
 
   <!-- The modal triggered by the button-click -->  
-  <div class="modal fade" id="new_hack" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body">
-        <h3>New Hack</h3>
-          
+          <h3>Log in to LifeHacker</h3>
+          <%= render "devise/sessions/form" %>
         </div>
       </div>
     </div>
   </div>
 
-  
+  <div class="modal fade" id="new_hack" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h3>New Hack</h3>
+          <%= render "hacks/form" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
 
 
 

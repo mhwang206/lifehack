@@ -7,6 +7,7 @@ class HacksController < ApplicationController
   end
 
   def show
+    @comment =  current_user.comments.build
     @hack = Hack.find(params[:id])
   end
 
@@ -34,7 +35,7 @@ class HacksController < ApplicationController
     else
       render action: 'edit'
     end
-  end
+end
 
   def destroy
     Hack.find(params[:id]).destroy

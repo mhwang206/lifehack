@@ -4,15 +4,15 @@ class CommentsController < ApplicationController
 	end
 
 	def show
-	  # @comment = Comment.find(params[:id])
-	end
-
-	def new
-	  @comment =  current_user.comments.build
+	  @comment = Comment.find(params[:id])
 	end
 
 	def edit
 	  @comment = Comment.find(params[:id])
+	end
+
+	def new
+	  @hack = current_user.hacks.build
 	end
 
 	def create
@@ -27,10 +27,9 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-      params.require(:comment).permit(:comment)
+      params.require(:comment).permit(:comment, :hack_id)
     end
 end
-
 
 
 

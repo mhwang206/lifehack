@@ -12,3 +12,35 @@
  *= require 'masonry/transitions'
  *= require_tree .
  */
+
+.auth_form {
+	width: 380px;
+	margin: 0 auto;
+	margin-top: 30px;
+	background-color: white;
+	padding: 10px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+
+	-webkit-box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+}
+
+.awesome {
+	/*border: 3px solid red;*/
+	height: 1000px;
+	text-align: center;
+}
+
+.awesome_hack {
+		/*border: 3px solid red;*/
+		width: 260px;
+		display: inline-block;
+}
+
+
+
+
+
