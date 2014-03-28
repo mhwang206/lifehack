@@ -1,8 +1,4 @@
 class CommentsController < ApplicationController
-	def index
-	  @comments = Comment.all
-	end
-
 	def show
 	  @comment = Comment.find(params[:id])
 	end
@@ -18,7 +14,7 @@ class CommentsController < ApplicationController
 	def create
 	  @comment = current_user.comments.build(comment_params)
 	  if @comment.save
-	    redirect_to action: 'index', notice: 'Comment was successfully created.'
+	    redirect_to @comment.hack, notice: 'Comment was successfully created.'
 	  else
 	    render action: 'new'
 	  end

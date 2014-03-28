@@ -19,10 +19,6 @@
 
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li><%= link_to new_hack_path do %>
-              <span class="glyphicon glyphicon-plus"></span> New Hack
-              <% end %>
-          </li>
           <li><%= link_to user_path(current_user) do %>
               <span class="glyphicon glyphicon-user"></span> My Hacks
               <% end %>
