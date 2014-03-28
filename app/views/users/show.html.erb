@@ -3,7 +3,20 @@
   </div>
   <div class="profile_info">
     <h2 id="user_name"><%= @user.name %></h2>
-    <div class="follow_btn"><%= link_to "Follow", followings_path(:follower_id => @user), :method => :post, class: "btn btn-warning btn-sm" %></div>
+    <% if @user == current_user %>
+      <%= link_to edit_user_registration_path do %>
+      <span class="glyphicon glyphicon-pencil"></span> Edit profile
+      <% end %>
+    <% end %>
+
+
+    <% if user_signed_in? && @user != current_user %>
+      <div class="follow_btn"><%= link_to "Follow", followings_path(:follower_id => @user), :method => :post, class: "btn btn-warning btn-sm" %></div>
+    <% end %>
+
+    
+
+
   </div>
 </div>
 
@@ -25,8 +38,12 @@
             <div class="panel-body">
               <strong><%= like.hack.description if like.hack %></strong>
               <br>
-              <%= like.hack.user.name if like.hack %> 
-              <%= link_to "remove", like, :method => :delete %>  
+              by <%= link_to like.hack.user.name, like.user if like.hack %> 
+              <br>
+              <strong><%= link_to like, method: :delete, data: { confirm: 'Are you sure?' } do %></strong>
+              <span class="glyphicon glyphicon-trash"></span> Remove
+              <% end %>
+
             </div>
           </div> 
         <% end %>    
@@ -65,9 +82,7 @@
   <div class="tab-pane" id="profile">
     <div id="hacks">
       <div class="awesome">
-        Name: <%= @user.name %><br>
-        Email: <%= @user.email %>
-        <div><%= link_to "Account settings", edit_user_registration_path %></div>
+
 
         <div class="relationships">
           <h3>Followings</h3>
@@ -78,7 +93,9 @@
                 <img src="https://i.imgur.com/9GrOH9h.jpg?1" alt="...">
                 <div class="caption">
                   <strong><%= link_to following.follower.name, following.follower if following.follower %></strong>
-                <div class="unfollow_btn"><%= link_to "Unfollow", following, :method => :delete, class: "btn btn-default btn-sm" %></div>
+                  <% if @user == current_user %>
+                    <div class="unfollow_btn"><%= link_to "Unfollow", following, :method => :delete, class: "btn btn-default btn-sm" %></div>
+                  <% end %>
                 </div>
               </div>
             </div>
