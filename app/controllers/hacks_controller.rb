@@ -7,7 +7,7 @@ class HacksController < ApplicationController
   end
 
   def show
-    @comment =  current_user.comments.build
+    @comment = @hack.comments.build
     @hack = Hack.find(params[:id])
   end
 

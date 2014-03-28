@@ -25,7 +25,6 @@
           </li>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to "Log in", new_user_session_path %></li>
           <li> 
             <button class = "btn btn-success welcome" data-toggle="modal" data-target="#login">Log in</button>
           </li>

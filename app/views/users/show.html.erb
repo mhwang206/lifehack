@@ -23,7 +23,7 @@
 <div class="tab-container">
   <ul class="nav nav-tabs nav-justified" id="myTab">
     <li class="active"><a href="#awesome" data-toggle="tab">Awesome Hacks</a></li>
-    <li><a href="#my" data-toggle="tab">My hacks</a></li>
+    <li><a href="#my" data-toggle="tab">My Hacks</a></li>
     <li><a href="#profile" data-toggle="tab">Profile</a></li>
   </ul>
 
@@ -90,7 +90,7 @@
             <% @user.followings.each do |following| %>
             <div class="col-sm-3 col-md-3">
               <div class="thumbnail">
-                <img src="https://i.imgur.com/9GrOH9h.jpg?1" alt="...">
+                <img src="http://i.imgur.com/BQ8pzcp.jpg?2" alt="...">
                 <div class="caption">
                   <strong><%= link_to following.follower.name, following.follower if following.follower %></strong>
                   <% if @user == current_user %>
@@ -107,7 +107,7 @@
             <% @user.inverse_followers.each do |follower| %>
             <div class="col-sm-3 col-md-3">
               <div class="thumbnail">
-                <img src="https://i.imgur.com/9GrOH9h.jpg?1" alt="...">
+                <img src="http://i.imgur.com/BQ8pzcp.jpg?2" alt="...">
                 <div class="caption">
                   <strong><%= link_to follower.name, follower if follower %></strong>
                 </div>
