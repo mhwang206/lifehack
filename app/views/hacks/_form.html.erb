@@ -1,3 +1,4 @@
+<% @hack = Hack.new if !@hack %>
 <%= form_for @hack, html: { multipart: true } do |f| %>
   <% if @hack.errors.any? %>
     <div id="error_explanation">
