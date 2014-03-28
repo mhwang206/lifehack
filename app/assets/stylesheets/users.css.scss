@@ -1,0 +1,35 @@
+.profile_container {
+	width: 70%;
+	height: 170px;
+	margin: 0 auto;
+
+}
+
+.profile_picture {
+	width: 150px;
+	height: 150px;
+	background-image: url("http://i.imgur.com/9GrOH9h.jpg?1");
+
+	display: inline-block;
+	float: left;
+}
+
+.profile_info {
+	width: 70%;
+	height: 150px;
+	background-color: white;
+	display: inline-block;
+	float: left;
+}
+
+.tab-container {
+	display: inline-block;
+}
+
+.follow_btn {
+	padding: 10px;
+}
+
+#user_name {
+	padding: 10px;
+}

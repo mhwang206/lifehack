@@ -9,9 +9,9 @@
         <span class="icon-bar"></span>
       </button>
       <ul class="nav navbar-nav navbar-right">
-      <li><strong><%= link_to "LifeHacker", root_path, class: "navbar-brand" %></strong></li>
-      <li><button class = "btn btn-warning" data-toggle="modal" data-target="#new_hack">+ new hack</button></li>
-     </ul>
+        <li><strong><%= link_to "LifeHacker", root_path, class: "navbar-brand" %></strong></li>
+        <li><button class = "btn btn-warning" data-toggle="modal" data-target="#new_hack">+ new hack</button></li>
+      </ul>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -42,28 +42,28 @@
 
 
 
-  <!-- The modal triggered by the button-click -->  
-  <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          <h3>Log in to LifeHacker</h3>
-          <%= render "devise/sessions/form" %>
-        </div>
+<!-- The modal triggered by the button-click -->  
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h3>Log in to LifeHacker</h3>
+        <%= render "devise/sessions/form" %>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="modal fade" id="new_hack" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          <h3>New Hack</h3>
-          <%= render "hacks/form" %>
-        </div>
+<div class="modal fade" id="new_hack" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h3>Create new hack!</h3>
+        <%= render "hacks/form" %>
       </div>
     </div>
   </div>
+</div>
 
 
 

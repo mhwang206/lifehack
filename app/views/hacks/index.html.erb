@@ -8,7 +8,7 @@
       <div class="panel-body">
         <strong><%= hack.description if hack.user %></strong>
         <br>
-        <p>by <%= link_to hack.user.name if hack.user %></p>
+        <p>by <%= link_to hack.user.name, hack.user if hack.user %></p>
         <%= link_to likes_path(:user_id => hack, :hack_id => hack), :method => :post do %>
         <span class="glyphicon glyphicon-hand-up"></span> Awesome
         <% end %>     
