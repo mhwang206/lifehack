@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :hacks
   has_many :likes
+  has_many :liked_hacks, :through => :likes, :foreign_key => "hack_id", source: :hack
   has_many :comments
   has_many :followings
   has_many :followers, :through => :followings
