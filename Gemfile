@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 1.2'
 group :development, :test do 
 # Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
+	gem 'pry'
 end
 
 group :production do

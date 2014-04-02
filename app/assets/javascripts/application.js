@@ -24,7 +24,16 @@ $(document).ready(function () {
                 }).on('mouseleave', '.divbutton', '.hoverimage', function () {
                     $(this).find(":button").hide();
                 });
-            });
+});
+
+var addLike = function(hackID){
+	likeNum = parseInt($(event.target).siblings(".num-likes")[0].innerHTML);
+	var elem = $(event.target)
+	$.post( "likes?hack_id="+hackID+"&user_id="+hackID, function( data ) {
+			elem.siblings(".num-likes")[0].innerHTML = data.total_likes;
+
+	});
+};
 
 
 

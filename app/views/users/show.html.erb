@@ -40,7 +40,7 @@
               <br>
               by <%= link_to like.hack.user.name, like.user if like.hack %> 
               <br>
-              <strong><%= link_to like, method: :delete, data: { confirm: 'Are you sure?' } do %></strong>
+              <strong><%= link_to like, method: :delete do %></strong>
               <span class="glyphicon glyphicon-trash"></span> Remove
               <% end %>
 
