@@ -4,11 +4,9 @@ class LikesController < ApplicationController
     @hack = Hack.find(params[:hack_id])
     respond_to do |format|
       if @like.save
-        flash[:notice] = "Your awesome hack was saved!"
         format.json { render json: { :total_likes => @hack.likes.count }.to_json, status: :created}
         format.html { redirect_to root_path }
       else
-        flash[:error] = "Sorry we aren't able to save the awesome hack right now."
         format.json { render json: @like.errors, status: :unprocessable_entity }
         format.html { redirect_to @like.hack }
       end

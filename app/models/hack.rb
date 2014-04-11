@@ -5,7 +5,7 @@ class Hack < ActiveRecord::Base
 	has_many :comments
 	has_many :likes
 
-	has_attached_file :image, :styles => {:large => '1000x1000>', :medium => "300x300>", :thumb => "100x100>" }
+	has_attached_file :image, :styles => {:large => '650x650>', :medium => "300x300>", :thumb => "100x100>" }
 
 	validates :image, presence: true
 	validates :description, presence: true

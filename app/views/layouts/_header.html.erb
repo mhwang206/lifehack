@@ -10,15 +10,14 @@
       </button>
       <ul class="nav navbar-nav navbar-right">
         <li><strong><%= link_to "LifeHacker", root_path, class: "navbar-brand" %></strong></li>
-        <li><button class = "btn btn-warning" data-toggle="modal" data-target="#new_hack">+ NEW HACK</button></li>
       </ul>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+        <li><button class = "btn btn-warning" data-toggle="modal" data-target="#new_hack">+</button></li>
           <li><%= link_to user_path(current_user) do %>
               <span class="glyphicon glyphicon-user"></span> My Hacks
               <% end %>
@@ -53,7 +52,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-        <h3>Create new hack!</h3>
+        <h3>Create New Hack!</h3>
         <%= render "hacks/form" %>
       </div>
     </div>
